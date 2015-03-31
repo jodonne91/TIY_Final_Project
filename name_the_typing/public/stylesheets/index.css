@@ -1,22 +1,21 @@
 
-.expirement{
-	position: absolute;
-	top: 100px;
-	left: 100px;
+.row{
+	margin-bottom: 2px;
+}
+
+.key#space{
+	width: 200px;
+	height: 26px;
+}
+
+.key{
+	display: inline-block;
+	height: 26px;
+	width: 26px;
 	border: 1px solid black;
-	height: 1000px;
-	width: 1000px;
+	border-radius: 2px;
+	text-align: center;
 }
 
-.sprite{
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: 50px;
-}
-
-.sprite img{
-	position: relative;
-	width: 100%;
-	display: block;
+.text-space{
 }

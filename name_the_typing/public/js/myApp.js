@@ -3,24 +3,35 @@ var myApp = (function(){
 
 	var app = {
 
-		//function to pass to Mousetrap.bind, handles the keyup internally, passes event
-		keyPressEvent: function(evt){
-			var key = String.fromCharCode(evt.charCode);
+		cursor_position: 0,
+
+		incrementCursorPosition: function(){
+			app.cursor_position++;
+			return app.cursor_position;
+		},
+
+	//function to pass to Mousetrap.bind; handles the keyup internally
+		keyPressEvent: function(key){
+			//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
 			var id_selector = '#' + 'key_' + key;
 			//console.log(id_selector);
 			$(id_selector).css('background-color', 'blue');
-			Mousetrap.bind(key, function(evt){
-				$(id_selector).css('background-color', 'white');
-			}, 'keyup');
-			app.sampleShowInTextSpace(key);  //append to .text-space
+			//app.sampleShowInTextSpace(key);  					//append to .text-space
 		},
 
-		//function to eliminate use of individual Mousetrap.bind calls
+		keyUpEvent: function(key){
+			var id_selector = '#' + 'key_' + key;
+			//console.log(id_selector);
+			$(id_selector).css('background-color', 'white');
+		},
+
+	//function to eliminate use of individual Mousetrap.bind calls
 		bindMouseTrapEvent: function(key){
-			Mousetrap.bind(key, app.keyPressEvent)
+			Mousetrap.bind(key, function(){app.keyPressEvent(key)});  //let Mousetrap handle 'keydown' or 'keypress'
+			Mousetrap.bind(key, function(){app.keyUpEvent(key)}, 'keyup');  
 		},
 
-		//append text to .textspace
+	//append text to .textspace
 		sampleShowInTextSpace: function(key){
 			$('.text-space').append(key);
 			var length = ($('.text-space').text().length);

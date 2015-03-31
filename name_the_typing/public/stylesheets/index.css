@@ -1,21 +1,19 @@
 
-.row{
-	margin-bottom: 2px;
+header{
+	width: 30%;
+	height: 100%;
+	float: right;
+	position: relative;
 }
 
-.key#space{
-	width: 200px;
-	height: 26px;
+.buttons{
+	float: right;
+	position: relative;
+	right: 10%;
 }
 
-.key{
-	display: inline-block;
-	height: 26px;
-	width: 26px;
-	border: 1px solid black;
-	border-radius: 2px;
-	text-align: center;
-}
 
 .text-space{
+	display: inline-block;
+	width: 20%;
 }

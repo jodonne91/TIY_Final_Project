@@ -1,0 +1,23 @@
+
+.keyboard{
+	width: 40%;
+	display: inline-block;
+}
+
+.row{
+	margin-bottom: 2px;
+}
+
+.key#key_space{
+	width: 200px;
+	height: 26px;
+}
+
+.key{
+	display: inline-block;
+	height: 26px;
+	width: 26px;
+	border: 1px solid black;
+	border-radius: 2px;
+	text-align: center;
+}

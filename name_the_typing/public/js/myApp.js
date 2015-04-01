@@ -1,7 +1,7 @@
 
-var myApp = (function(){
+// var myApp = (function(){
 
-	var app = {
+// 	var app = {
 
 		cursor_position: 0,
 
@@ -10,16 +10,18 @@ var myApp = (function(){
 			return app.cursor_position;
 		},
 
-	//function to pass to Mousetrap.bind; handles the keyup internally
+	//functions to pass to Mousetrap.bind; handles the keypress event structure
 		keyPressEvent: function(key){
 			//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
 			var id_selector = '#' + 'key_' + key;
 			//console.log(id_selector);
 			$(id_selector).css('background-color', 'blue');
-			//app.sampleShowInTextSpace(key);  					//append to .text-space
+			app.sampleType(key)
 		},
 
+	//handles keyup event structure
 		keyUpEvent: function(key){
+			//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
 			var id_selector = '#' + 'key_' + key;
 			//console.log(id_selector);
 			$(id_selector).css('background-color', 'white');
@@ -31,20 +33,60 @@ var myApp = (function(){
 			Mousetrap.bind(key, function(){app.keyUpEvent(key)}, 'keyup');  
 		},
 
-	//append text to .textspace
-		sampleShowInTextSpace: function(key){
-			$('.text-space').append(key);
-			var length = ($('.text-space').text().length);
-			if( length > 10 ){
+	//sample type testing	
+		sampleType: function(typeKey, readKey, currentPosition){
+			currentPosition = currentPosition || app.cursor_position
+			var id = '#' + currentPosition;
+			readKey = readKey || $(id).text()
+			app.incrementCursorPosition();
+			app.makeSampleKeyActive(app.cursor_position)
+			$('.text-response').text('');
+			if(typeKey === readKey){
+				console.log('yes!')
+				$('.text-response').append('YES!');
+				return true;
 			}
+			$('.text-response').append('NO!');
+			console.log('no..');
+			return false;
 		},
 
+		appendSampleText: function(text){
+			$('.text-space').text(text);
+		},
+
+		initiateSampleText: function(){
+
+			var text = $('.text-space').text();
+			$('.text-space').text('');
+			var charArr = text.split('');
+
+			var index = '';
+			var appendText = '';
+
+			for(var i = 0; i < charArr.length; i++){
+				index = i + '';
+				appendText = '<span class="char" id="' + index + '">' + charArr[i] + '</span>'
+				$('.text-space').append(appendText);
+			}
+
+			app.makeSampleKeyActive(0);
+
+		};
+
+		makeSampleKeyActive: function(currentPosition){
+
+			var id = '#' + currentPosition;
+			$('.char').css('background-color', 'white')
+			$(id).css('background-color', 'yellow');
+
+		}
 
 
-	}
+// 	}
 
 
 
-	return app;
+// 	return app;
 
-})();
+// })();

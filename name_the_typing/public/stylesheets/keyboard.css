@@ -8,6 +8,14 @@
 	margin-bottom: 2px;
 }
 
+.key#key_enter{
+	width: 55px;
+}
+
+.key#key_shift{
+	width: 70px;
+}
+
 .key#key_space{
 	width: 200px;
 	height: 26px;

@@ -11,6 +11,7 @@ $(function(){
 //load partials 
 	$('.keyboard').load('partials/keyboard.html', function(){
 	//bind all keys (letters/lowercase only)
+		keyClick();
 		for(var i = 97 ; i < 123 ; i ++){
 			var key = String.fromCharCode(i);
 			bindMouseTrapEvent(key);
@@ -29,14 +30,18 @@ $(function(){
 
 	$('.login-append').load('partials/login.html', function(){
 	//bind login cancel button	
-		$('#cancel-button').on('click', function(){
+		$('.cancel-button').on('click', function(){
 			console.log('#cancel-button')
+			$('.login-input').val('');
+			$('.signup-input').val('');
 			$('.login-append').hide();
 		});
 	//bind login submit button	
-		$('#submit-button').on('click', function(){
-			var username = $('#login-input').val();
-			var password = $('#password-input').val();
+		$('.submit-button').on('click', function(){
+			var username = $('#login-username-input').val();
+			var password = $('#login-password-input').val();
+			$('.login-input').val('');
+			$('.signup-input').val('');
 			console.log(username, password);
 			$('.login-append').hide();
 		})
@@ -45,6 +50,9 @@ $(function(){
 //bind spacebar
 	bindMouseTrapEvent('space');
 	bindMouseTrapEvent('-');
+	bindMouseTrapEvent('.');
+	bindMouseTrapEvent(',');
+	bindMouseTrapEvent("'")
 	//bindMouseTrapEvent('=');
 	bindMouseTrapEvent('enter');
 	//bindMouseTrapEvent('shift');
@@ -52,9 +60,11 @@ $(function(){
 
 
 //early sample
-	cursor_position = 0;
-	appendSampleText(sentences[0]);
-	initiateSampleText();
+	$('.start').on('click', function(){
+		cursor_position = 0;
+		appendSampleText(sentences[0]);
+		initiateSampleText();
+	})
 
 	
 
@@ -64,7 +74,13 @@ $(function(){
 
 	$('#login-button').on('click', function(){
 		$('.login-append').show();
-	})
-
+		$('#login').show();
+		$('#sign-up').hide();
+	});
+	$('#signup-button').on('click', function(){
+		$('.login-append').show();
+		$('#sign-up').show();
+		$('#login').hide();
+	});
 
 })

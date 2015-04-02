@@ -1,23 +1,36 @@
 
 <!-- <script src='js/login.js'></script> -->
 
-<div id='login'>	
+<div class='form-div' id='login'>	
 	<h4>
 		Please enter login information
 	</h4>
 	<div id='login-form'>
-		UserName:
-		<input class='login-input' type='text' id='login-input'></input>
-		Password:
-		<input class='login-input' type='password' id='password-input'></input>
+		<p class='identifier'>UserName:</p>
+		<input class='form-input login-input' type='text' id='login-username-input'></input>
+		<p class='identifier'>Password:</p>
+		<input class='form-input login-input' type='password' id='login-password-input'></input>
 	</div>
 
-	<h4 class='login-form-button' id='cancel-button'>Cancel</h4>
-	<h4 class='login-form-button' id='submit-button'>Submit</h4>
+	<h4 class='form-button login-form-button cancel-button'>Cancel</h4>
+	<h4 class='form-button  login-form-button submit-button'>Submit</h4>
 </div>
 
 
 
-<div id = 'sign-up'>
+<div class='form-div' id = 'sign-up'>
+	<h4>
+		Please enter login information
+	</h4>
+	<div id='signup-form'>
+		<p class='identifier'>UserName:</p>
+		<input class='form-input signup-input' type='text' id='signup-username-input'></input>
+		<p class='identifier'>Password:</p>
+		<input class='form-input signup-input' type='password' id='signup-password-input'></input>
+		<p class='identifier'>Confirm Password:</p>
+		<input class='form-input signup-input' type='password' id='signup-password-input'></input>
+	</div>
 
+	<h4 class='form-button cancel-button'>Cancel</h4>
+	<h4 class='form-button submit-button'>Submit</h4>
 </div>

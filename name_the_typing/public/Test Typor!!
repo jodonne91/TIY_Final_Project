@@ -1,0 +1,20 @@
+Test Typor!!
+
+
+multiple keyboards
+text generation
+user stats
+leaderboards:{
+	wpm, learning rate, 
+}
+
+pause clock when inactive typing for some time
+
+check keyboard - only like 8 keys can light up at a given time
+
+instead of header with login and info, sidebar    <-----        this
+
+
+
+potential problem - shift+keypress does not bind keyup event. timeout is currently used
+	in keypress event function to un-highlight on screen key

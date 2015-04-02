@@ -1,4 +1,8 @@
 
+html{
+	background-color: aliceblue;
+}
+
 header{
 	width: 30%;
 	height: 100%;
@@ -12,12 +16,20 @@ header{
 	right: 10%;
 }
 
+.text-space{
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 
 .text-area{
 	display: inline-block;
 	width: 60%;
-
+	font-size: 26px;
+	font-family: Verdana;
+	font-weight: 600;
 }
+
 
 .text-response{
 	margin-top: 5px;

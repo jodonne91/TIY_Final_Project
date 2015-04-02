@@ -8,6 +8,7 @@
 			<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
 			<link type='' href=''/>
 		<!--	JAVASCRIPT	-->
+			<script type='text/javascript' src='libs/underscore.js'></script>
 			<script type='text/javascript' src='libs/jquery.js'></script>
 			<script type='text/javascript' src='libs/mousetrap.js'></script>
 			<script type='text/javascript' src='js/myApp_temp.js'></script>
@@ -26,14 +27,20 @@
 
 		<div class='workspace'>
 
-			<div class='keyboard'>
-				
+			<div class='stats'>
+				<p>words per minute: <span id='WPM'></span></p>
+				<p>characters per minute: <span id='CPM'></span></p>
+				<p>accuracy: <span id='accuracy'></span></p>
+			</div>
+
+			<div class='keyboard'>	
+
 			</div>
 
 			<div class='text-area'>
 				<h4> Type highlighted key </h4>
 				<div class = 'text-space'>
-
+					<button class='start'>Click to Start</button>
 				</div>
 				<div class='text-response'>
 

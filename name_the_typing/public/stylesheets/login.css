@@ -4,3 +4,22 @@
 	padding: 12px;
 	border: 1px solid black;
 }
+
+.form-div{
+	border: 1px solid black;
+	position: relative;
+	width: 68%;
+}
+
+.form-input{
+	position: relative;
+	margin-left: 30px;
+}
+
+.form-button{
+	text-align: center;
+}
+
+.identifier{
+	margin-left: 10px;
+}

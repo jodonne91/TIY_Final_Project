@@ -1,0 +1,26 @@
+.subsection1-2{
+	float: left;
+	width: 64%;
+	display: inline-block;
+}
+.subsection3{
+	float: right;
+	width: 34%;
+	display: inline-block;
+}
+.section1{
+	width: 100%;
+	height: 9em;
+}
+.section2{
+	width: 100%;
+	height: 23em;
+}
+.section3{
+	width: 100%;
+	height: 30em;
+}
+.section4{
+	width: 100%;
+	height: 9em;
+}

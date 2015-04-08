@@ -1,8 +1,10 @@
 
 var text = "Hi boys. I'm Tina. Your body. We can make this work. We can work out a dating wheel, just like a chore wheel. Let's put the try in triangle. Everything I know to be true just went out the window. I'm compiling a list of people I can mate with to repopulate the Earth. Our toaster is also confused. It doesn't know where bagels go. uhhhhhhhhhhhhhhhh I can't tell where your back ends and your butt begins. I'm just not sure if I'll be any good on the grill with one free hand. Dear God, this is Tina from school. Is it possible to be in love with 25 people at once? Give them ridiculous French accents. I need to find a boy with a turtle bite on his finger. A pants-off. For me? It includes material that may not be suitable for all ages."
 var sentences = _.shuffle(_.flatten(_.map(text.split('. '), function(str){return str.split('? ')})));
+
 var current_sentence = 0;
 var cursor_position = 0;
+
 var text_length;
 var logged_time;
 var num_char;
@@ -12,10 +14,18 @@ var charPM;
 var accuracy;
 var accuracy_arr = [];
 
+
+//sample user stats:
+var total_words = 0;
+var total_characters = 0;
+var total_time = 0;
+//limit ten sentences -- maybe
+
+
 //function to eliminate use of individual Mousetrap.bind calls
 
 var bindMouseTrapEvent = function(key){
-	Mousetrap.bind(key, function(){keyPressEvent(key)});  //let Mousetrap handle 'keydown' or 'keypress'
+	Mousetrap.bind(key, function(){keyPressEvent(key); return false});  //let Mousetrap handle 'keydown' or 'keypress'
 	Mousetrap.bind(key, function(){keyUpEvent(key)}, 'keyup');  
 };
 
@@ -28,15 +38,22 @@ var incrementCursorPosition = function(){
 //functions to pass to Mousetrap.bind; handles the keypress event structure
 var keyPressEvent = function(key){
 	//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
+	//console.log(key);
 	var id_selector;
 	if(key === '.'){
 		id_selector = '#key_period';
+	}
+	else if(key === '-'){
+		id_selector = '#key_dash'
+	}
+	else if (key ===';'){
+		id_selector = '#key_semi';
 	}
 	else if(key === ','){
 		id_selector = '#key_comma';
 	}
 	else if(key === '/'){
-		id_selector === '#key_forward-slash';
+		id_selector = '#key_forward-slash';
 	}
 	else if(key ==="'"){
 		id_selector = '#key_quote'
@@ -68,11 +85,17 @@ var keyUpEvent = function(key){
 	if(key === '.'){
 		id_selector = '#key_period';
 	}
+	else if(key === '-'){
+		id_selector = '#key_dash';
+	}
+	else if (key ===';'){
+		id_selector = '#key_semi';
+	}
 	else if(key === ','){
 		id_selector = '#key_comma';
 	}
 	else if(key === '/'){
-		id_selector === '#key_forward-slash';
+		id_selector = '#key_forward-slash';
 	}
 	else if(key ==="'"){
 		id_selector = '#key_quote'
@@ -89,22 +112,22 @@ var keyUpEvent = function(key){
 
 //sample type testing	
 var sampleType = function(typeKey, readKey, currentPosition){
-	currentPosition = currentPosition || cursor_position
+	var currentPosition = currentPosition || cursor_position
 	var id = '#' + currentPosition;
-	readKey = readKey || $(id).text()
+	var readKey = readKey || $(id).text()
 	incrementCursorPosition();
-	var bool = true;
+	var hit = true;
 	makeSampleKeyActive(cursor_position);
 
 	if(typeKey === readKey){
 		console.log('yes!')
-		$('.text-response').text('YES!');
+		$('.text-response').text(calculateAccuracy());
 		$(id).css('color', '#A3A5A3');
 	}
 	else {
-		$('.text-response').text('NO!');
+		$('.text-response').text(calculateAccuracy());
 		console.log('no..');
-		bool = false;
+		hit = false;
 		$(id).css('color',  'red');
 	}
 
@@ -114,7 +137,7 @@ var sampleType = function(typeKey, readKey, currentPosition){
 		initiateSampleText();
 	}
 
-	return bool;
+	return hit;
 };
 
 var appendSampleText = function(text){
@@ -136,6 +159,7 @@ var initiateSampleText = function(){
 
 
 	calculateStats(time);
+	appendStats();
 
 	num_words = numWords;
 	num_char = numChar;
@@ -187,31 +211,74 @@ var makeSampleKeyActive = function(currentPosition){
 };
 
 
-var calculateStats = function(time){
-
-	WPM = (num_words/(time - logged_time))*60000;
-	charPM = (num_char/(time - logged_time))*60000;
+var calculateAccuracy = function(){
 	var true_count = 0;
 	for( var i = 0 ; i < accuracy_arr.length ; i++ ){
 		if(accuracy_arr[i]){
 			true_count += 1;
 		}
 	}
-	accuracy = (true_count/accuracy_arr.length)*100;
-	console.log(WPM, charPM, accuracy); 
+
+	var accuracy = (true_count/accuracy_arr.length)*100;
+	return accuracy;
+}
 
 
-	if(WPM){
-		wpmText = (WPM + '').substring(0, 5);
-		cpmText = (charPM + '').substring(0, 5);
+var calculateStats = function(time){
+
+	var true_count = 0;
+	for( var i = 0 ; i < accuracy_arr.length ; i++ ){
+		if(accuracy_arr[i]){
+			true_count += 1;
+		}
+	}
+
+	var session_time = (time - logged_time);
+	var session_accuracy = (true_count/accuracy_arr.length)*100;
+	var session_WPM = (num_words/session_time)*60000;
+	var session_charPM = (num_char/session_time)*60000;
+
+	if(num_words){
+		total_words += num_words;
+	}
+	if(num_char){
+		total_characters += num_char;
+	}
+	if(session_time){
+		total_time += session_time;
+	}
+
+	appendStats(session_WPM, session_charPM, session_accuracy);
+	console.log(session_WPM, session_charPM, session_accuracy); 
+	overallStats();
+}
+
+
+var overallStats = function(){
+	WPM = (total_words/total_time)*60000;
+	charPM = (total_characters/total_time)*60000;
+	console.log(WPM, charPM);
+	if(active_user){
+		active_user.WPM = WPM;
+		active_user.CPM = charPM;
+	}
+}
+
+
+var appendStats = function(wpm, cpm, accuracy){
+
+	if(wpm){
+		wpmText = (wpm + '').substring(0, 5);
+		cpmText = (cpm + '').substring(0, 5);
 		accuracyText = (accuracy + '').substring(0, 5) + '%';
 		$('#WPM').text(wpmText);
 		$('#CPM').text(cpmText);
 		$('#accuracy').text(accuracyText)	
 	}
-	// WPM = words/minute
-
-	// accuracy = letters_correct / letters_total
+	if(active_user){
+		$('.sidebar-userWPM').text(active_user.WPM);
+		$('.sidebar-userCPM').text(active_user.CPM);
+	}
 
 };
 
@@ -225,7 +292,6 @@ var autoScroll = function(){
 	// var containerPosition = $('.text-space').position().left;
 
 	//console.log(currentOffset, containerOffset, currentPosition, containerPosition)
-
 
 	if(cursor_position <= 15){
 		$('.text-space').scrollLeft(0)
@@ -244,8 +310,4 @@ var keyClick = function(){
 		key = evt.target.id.substring(4);
 		Mousetrap.trigger(key)
 	});
-}
-
-var loginListener = function(){
-
 }

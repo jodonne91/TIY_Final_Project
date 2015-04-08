@@ -5,47 +5,66 @@
 		<!--	STYLESHEETS	-->
 			<link rel='stylesheet' type='text/css' href='stylesheets/index.css'/>
 			<link rel='stylesheet' type='text/css' href='stylesheets/keyboard.css'/>
-			<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
-			<link type='' href=''/>
+			<link rel="stylesheet" type="text/css" href="stylesheets/login.css"/>
+			<link rel='stylesheet' type='text/css' href='stylesheets/sections.css'/>
 		<!--	JAVASCRIPT	-->
 			<script type='text/javascript' src='libs/underscore.js'></script>
 			<script type='text/javascript' src='libs/jquery.js'></script>
 			<script type='text/javascript' src='libs/mousetrap.js'></script>
+			<script type="text/javascript" src='js/animate.js'></script>
+			<script type="text/javascript" src='js/ddtype.js'></script>
+			<script type='text/javascript' src='js/login.js'></script>
+			<script type='text/javascript' src='js/partials.js'></script>
 			<script type='text/javascript' src='js/myApp_temp.js'></script>
 			<script type='text/javascript' src='js/index.js'></script>
 		<!--	  MISC		-->
 	</head>
 	<body>
-		<header class='side-bar'>
-			<div class='buttons'>
-				<h4 class='side-bar-button' id='login-button'>Login</h4>
-				<h4 class='side-bar-button' id='signup-button'>Sign Up</h4>
-			</div>
-			<div class='login-append'>
-			</div>
-		</header>
 
 		<div class='workspace'>
 
-			<div class='stats'>
-				<p>words per minute: <span id='WPM'></span></p>
-				<p>characters per minute: <span id='CPM'></span></p>
-				<p>accuracy: <span id='accuracy'></span></p>
-			</div>
 
-			<div class='keyboard'>	
-
-			</div>
-
-			<div class='text-area'>
-				<h4> Type highlighted key </h4>
-				<div class = 'text-space'>
-					<button class='start'>Click to Start</button>
-				</div>
-				<div class='text-response'>
-
+			<div class='section1'><h1>Main Heading</h1>
+				<div class='stats'>
+					<p>words per minute: <span id='WPM'></span></p>
+					<p>characters per minute: <span id='CPM'></span></p>
+					<p>accuracy: <span id='accuracy'></span></p>
 				</div>
 			</div>
+			<div class='subsection1-2'>
+				<div class='section2'><h2>Section Heading</h2>
+					<div class='keyboard'>	
+
+					</div>
+					<div class='section4'><h4>Subsection Heading</h4>
+						<div class='text-area'>
+							<h4> Type highlighted key </h4>
+							<div class = 'text-space'>
+								<button class='start'>Click to Start</button>
+							</div>
+							<div class='text-response'>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='subsection3'>
+				<div class='section3'><h3>Subsection Heading</h3>
+					<header class='side-bar'>
+
+					</header>
+				</div>
+			</div>
+
+
+
+
+<!-- 			<div class='ddtype'>
+				<div class='ddkey'></div>
+			</div> -->
+
+
 
 		</div>
 

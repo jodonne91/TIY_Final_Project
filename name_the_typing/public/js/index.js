@@ -1,12 +1,7 @@
 
 $(function(){
 
-	$('.load-keyboard').on('click', function(){
-		enterKeys();
-	})
-
-
-
+	$(".restart-button").hide();
 
 	Mousetrap.bind('backspace', function(e) {
 	    cursor_position = cursor_position > 0 ? (cursor_position-1) : cursor_position;
@@ -32,11 +27,20 @@ $(function(){
 
 
 //early sample
-	$('.start').on('click', function(){
+	$('.start-button').on('click', function(){
 		cursor_position = 0;
 		appendSampleText(sentences[0]);
 		initiateSampleText();
-	})
+		$(".restart-button").show();
+	});
+
+	$('.restart-button').on('click', function(){
+		cursor_position = 0;
+		clock.reset();
+		appendSampleText(sentences[Math.floor(Math.random()*sentences.length)]);
+		initiateSampleText();
+	});
+
 
 
 })

@@ -2,6 +2,7 @@
 var loadKeyboard = function(){
 		$('.keyboard').load('partials/keyboard.html', function(){
 	//bind all keys (letters/lowercase only)
+		
 		keyClick();
 		for(var i = 97 ; i < 123 ; i ++){
 			var key = String.fromCharCode(i);

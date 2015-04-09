@@ -9,8 +9,15 @@ function User(username, password){
 	this.WPM = null;
 	this.CPM = null;
 	this.accuracy = null;
-	this.wordsTyped = null;
-	this.charTyped = null;
+	this.wordsTyped = 0;
+	this.charTyped = 0;
+	this.timeTyped = 0;
+	this.calculateWPM = function(){
+		return this.wordsTyped/this.timeTyped;
+	}
+	this.calculateCPM = function(){
+		return this.charTyped/this.timeTyped;
+	}
 }
 
 var database = [];
@@ -24,7 +31,7 @@ function fetchUsersDatabase(){
 			console.log('users database fetch successful');
 			console.log(database);
 		}
-	})
+	});
 }
 
 fetchUsersDatabase();
@@ -58,6 +65,7 @@ var runLogin = function(init){
 		$('.user-info').show();
 		$('.sidebar-username').text(active_user.username);
 		$('.sidebar-userWPM').text(active_user.WPM);
+		$('.sidebar-userCPM').text(active_user.CPM);
 		console.log('loggin successful');
 		return true;
 	}
@@ -99,5 +107,6 @@ var logout = function(){
 	$('.user-info').hide();
 	$('.sidebar-username').text('');
 	$('.sidebar-userWPM').text('');
+	$('.sidebar-userCPM').text('');
 	console.log('log out successful');
 }

@@ -4,6 +4,7 @@ var loadKeyboard = function(){
 	//bind all keys (letters/lowercase only)
 		
 		keyClick();
+
 		for(var i = 97 ; i < 123 ; i ++){
 			var key = String.fromCharCode(i);
 			bindMouseTrapEvent(key);
@@ -82,7 +83,7 @@ var loadSidebar = function(){
 		});
 		$('.logout').on('click', function(){
 			logout();
-		})
+		});
 		loadLogin();  //must be called from within here or will try to bind before elements are available
 	});
 

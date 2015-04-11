@@ -1,10 +1,11 @@
 
 
-
 //function to eliminate use of individual Mousetrap.bind calls
 
+var lower_limit = 0;
+
 var bindMouseTrapEvent = function(key){
-	Mousetrap.bind(key, function(){keyPressEvent(key); return false});  //let Mousetrap handle 'keydown' or 'keypress'
+	Mousetrap.bind(key, function(){keyPressEvent(key); return false});  //let Mousetrap handle 'keydown' or 'keypress'; disable default action
 	Mousetrap.bind(key, function(){keyUpEvent(key)}, 'keyup');  
 };
 
@@ -18,12 +19,13 @@ var incrementCursorPosition = function(){
 var keyPressEvent = function(key){
 	//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
 	//console.log(key);
+	//key = convertDvorak(key);
 	var id_selector;
 	if(key === '.'){
 		id_selector = '#key_period';
 	}
 	else if(key === '-'){
-		id_selector = '#key_dash'
+		id_selector = '#key_dash';
 	}
 	else if (key ===';'){
 		id_selector = '#key_semi';
@@ -35,7 +37,7 @@ var keyPressEvent = function(key){
 		id_selector = '#key_forward-slash';
 	}
 	else if(key ==="'"){
-		id_selector = '#key_quote'
+		id_selector = '#key_quote';
 	}
 	else{
 		id_selector = '#' + 'key_' + key.toLowerCase();
@@ -45,7 +47,7 @@ var keyPressEvent = function(key){
 	window.key_press_timeout = setTimeout(function(){$(id_selector).css('background-color', 'white')}, 750)
 	if(key === 'space'){
 		console.log(cursor_position);
-		accuracy_arr[cursor_position] = sampleType(' ');
+		accuracy_arr[cursor_position] = sampleType('_');
 	}
 	else if(key === 'enter'){
 		sampleType('↵');
@@ -60,6 +62,7 @@ var keyPressEvent = function(key){
 var keyUpEvent = function(key){
 	//var key = String.fromCharCode(evt.charCode);  	//can read key straight from event
 	//console.log(key.toLowerCase())
+	//key = convertDvorak(key);
 	var id_selector;
 	if(key === '.'){
 		id_selector = '#key_period';
@@ -93,7 +96,7 @@ var sampleType = function(typeKey, readKey, currentPosition){
 	var $id = $(id);
 	var readKey = readKey || $id.text()
 
-	if (cursor_position === 0){
+	if (currentPosition === 0){
 		clock.start();
 	}
 
@@ -101,9 +104,13 @@ var sampleType = function(typeKey, readKey, currentPosition){
 	makeSampleKeyActive(cursor_position);
 
 	if(typeKey === readKey){
-		console.log('yes!')
-		console.log(id);
-		//keyDisappear($id);
+		console.log('yes!');
+		console.log(id);	
+		var false_index = _.indexOf(accuracy_arr, false);
+		if(false_index === -1 || false_index === currentPosition || false_index > currentPosition){
+			keyDisappear($id);
+			lower_limit = cursor_position;
+		}
 		$('.text-response').text(calculateAccuracy());
 		$id.css('color', '#A3A5A3');
 	}

@@ -11,10 +11,11 @@
 .section1{
 	width: 100%;
 	height: 9em;
+	vertical-align: top;
 }
 .section2{
 	width: 100%;
-	height: 23em;
+	height: 14em;
 }
 .section3{
 	width: 100%;

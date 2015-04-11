@@ -4,7 +4,7 @@ $(function(){
 	$(".restart-button").hide();
 
 	Mousetrap.bind('backspace', function(e) {
-	    cursor_position = cursor_position > 0 ? (cursor_position-1) : cursor_position;
+	    cursor_position = cursor_position > lower_limit ? (cursor_position-1) : cursor_position;
 	    makeSampleKeyActive(cursor_position);
 	    return false;     //prevent default action of browser back-page
 	});
@@ -31,7 +31,7 @@ $(function(){
 		cursor_position = 0;
 		appendSampleText(sentences[0]);
 		initiateSampleText();
-		$(".restart-button").show();
+		$('.restart-button').show();
 	});
 
 	$('.restart-button').on('click', function(){
@@ -40,6 +40,23 @@ $(function(){
 		appendSampleText(sentences[Math.floor(Math.random()*sentences.length)]);
 		initiateSampleText();
 	});
+
+
+	$('.select-qwerty').on('click', function(){
+		//setKeyBoard(qwerty);
+	});
+	$('.select-dvorak').on('click', function(){
+		//setKeyBoard(dvorak);
+	});
+
+	function chooseKeyboard(keyboard){
+		if(keyboard === 'dvorak'){
+			//convertDvorak(key);
+		}
+		if(keyboard === 'qwerty'){
+
+		}
+	}
 
 
 

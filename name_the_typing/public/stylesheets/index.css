@@ -4,6 +4,13 @@
 }
 
 
+.keyboard-select{
+	float: right;
+	right: 100px;
+	position: relative;
+}
+
+
 html{
 	background-color: aliceblue;
 }
@@ -13,6 +20,11 @@ header{
 	height: 100%;
 	float: right;
 	position: relative;
+}
+
+button{
+	width: 100px;
+	height: 30px;
 }
 
 .workspace{
@@ -62,6 +74,8 @@ header{
 }
 
 .char{
+	display: inline-block;
+	position: relative;
 	margin: 4px;
 }
 

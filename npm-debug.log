@@ -5,7 +5,7 @@
 4 verbose node symlink /usr/local/bin/node
 5 verbose config Skipping project config: /Users/jodonne91/.npmrc. (matches userconfig)
 6 verbose stack Error: ENOENT, open '/Users/jodonne91/package.json'
-7 verbose cwd /Users/jodonne91/Desktop/TIY_FINAL_PROJECT
+7 verbose cwd /Users/jodonne91/Desktop/TIY/TIY_FINAL_PROJECT
 8 error Darwin 14.1.0
 9 error argv "node" "/usr/local/bin/npm" "start"
 10 error node v0.10.35

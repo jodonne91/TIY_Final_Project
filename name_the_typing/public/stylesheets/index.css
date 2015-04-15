@@ -3,6 +3,13 @@
 	height: 60px;
 }
 
+.title{
+	font-size: 3em;
+}
+
+.stat-line{
+	font-size: 33px;
+}
 
 .keyboard-select{
 	float: right;
@@ -12,7 +19,7 @@
 
 
 html{
-	background-color: aliceblue;
+	background-color: #A420FF;
 }
 
 header{
@@ -20,9 +27,11 @@ header{
 	height: 100%;
 	float: right;
 	position: relative;
+	margin-top: 2em;
 }
 
 button{
+	display: inline-block;
 	width: 100px;
 	height: 30px;
 }

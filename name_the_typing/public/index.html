@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 	<html>
 	<head>
-		<h1>WELCOME!!!</h1>
 		<!--	STYLESHEETS	-->
 			<link rel='stylesheet' type='text/css' href='stylesheets/index.css'/>
 			<link rel='stylesheet' type='text/css' href='stylesheets/keyboard.css'/>
 			<link rel="stylesheet" type="text/css" href="stylesheets/login.css"/>
 			<link rel='stylesheet' type='text/css' href='stylesheets/sections.css'/>
 		<!--	JAVASCRIPT	-->
+			<script type='text/javascript' src='libs/Chart.js'></script>
 			<script type='text/javascript' src='libs/underscore.js'></script>
 			<script type='text/javascript' src='libs/jquery.js'></script>
 			<script type='text/javascript' src='libs/mousetrap.js'></script>
@@ -22,53 +22,47 @@
 		<!--	  MISC		-->
 	</head>
 	<body>
+		<h1 class='title'>Tina Typing</h1>
 
 		<div class='workspace'>
 
 
-			<div class='section1'><h1>Main Heading</h1>
-				<div class='stats'>
-					<p>words per minute: <span id='WPM'></span></p>
-					<p>characters per minute: <span id='CPM'></span></p>
-					<p>accuracy: <span id='accuracy'></span></p>
-				</div>
+			<div class='section1'><h1>Learn typing with Tina Belcher!</h1>
 				<div class='keyboard-select'>
 					<button class='select-qwerty'>QWERTY</button>
 					<button class='select-dvorak'>DVORAK</button>
 				</div>
 			</div>
-			<div class='subsection1-2'>
-				<div class='section2'><h2>Keyboard</h2>
-					<div class='keyboard'>	
-
-					</div>
-				</div>
-				<div class='section4'><h4>Subsection Heading</h4>
-					<div class='clock'>
-
-					</div>	
-					<div class='text-area'>
-						<h4> Type highlighted key </h4>
-						<div class = 'text-space'>
-							<button class='start-button'>Click to Start</button>
-						</div>
-						<button class='restart-button'>Restart</button>
-						<div class='text-response'>
-
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class='subsection3'>
-				<div class='section3'><h3>Subsection Heading</h3>
-					<header class='side-bar'>
+				<header class='side-bar'>
 
-					</header>
+				</header>
+				<div class='stats'>
+						<p class='stat-line'>words per minute: <span id='WPM'></span></p>
+						<p class='stat-line'>characters per minute: <span id='CPM'></span></p>
+						<p class='stat-line'>accuracy: <span id='accuracy'></span></p>
 				</div>
 			</div>
+			<div class='section2'><h2>Keyboard</h2>
+				<div class='keyboard'>	
 
+				</div>
+			</div>
+			<div class='section4'><h4>Type the Text</h4>
+				<div class='clock'>
 
+				</div>	
+				<div class='text-area'>
+					<h4> Type highlighted key </h4>
+					<div class = 'text-space'>
+						<button class='start-button'>Click to Start</button>
+					</div>
+					<button class='restart-button'>Restart</button>
+					<div class='text-response'>
 
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</body>

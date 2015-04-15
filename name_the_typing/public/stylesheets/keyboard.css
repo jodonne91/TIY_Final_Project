@@ -4,12 +4,11 @@
 	left: 100px;
 }
 
-
-
 .keyboard{
 	position: relative;
 	width: 100%;
 	display: inline-block;
+	top: 50px;
 }
 
 .row{
@@ -18,47 +17,50 @@
 }
 
 .key_row0{
-	left: 31px;
+	left: 60px;
 }
 
 .key_row1{
-	left: 46px;
+	left: 90px;
 }
 
 .key_row2{
-	left: 53px;
+	left: 105px;
 }
 
 .key_row3{
-	left: 0px;
+	left: 25px;
 }
 
 .key#key_enter{
-	width: 55px;
+	width: 100px;
 }
 
 .key#key_shift{
-	width: 70px;
+	width: 126px;
 }
 .key#key_leftshift{
-	width:	64px;
+	width:	106px;
 }
 
 .key#key_space{
-	left: 130px;
-	width: 200px;
-	height: 26px;
+	left: 254px;
+	width: 260px;
+	height: 36px;
 }
 
 .key{
+	font-size: 22px;
 	position: relative;
 	display: inline-block;
-	height: 26px;
-	width: 26px;
+	height: 36px;
+	width: 52px;
 	border: 1px solid black;
 	border-radius: 2px;
+	padding-top: 14px;
 	text-align: center;
-	background-color: white;
+	background-color: black;
+	color: white;
 }
 
 

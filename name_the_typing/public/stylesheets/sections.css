@@ -1,27 +1,35 @@
 .subsection1-2{
+	display: inline-block;
 	float: left;
 	width: 64%;
 	display: inline-block;
 }
 .subsection3{
+	display: inline-block;
 	float: right;
-	width: 34%;
+	width: 30%;
 	display: inline-block;
 }
 .section1{
-	width: 100%;
+	display: inline-block;
+	width: 69%;
 	height: 9em;
 	vertical-align: top;
 }
 .section2{
-	width: 100%;
-	height: 14em;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 70%;
+	height: 28em;
+	vertical-align: top;
 }
 .section3{
+	display: inline-block;
 	width: 100%;
 	height: 30em;
 }
 .section4{
+	display: inline-block;
 	width: 100%;
 	height: 9em;
 }

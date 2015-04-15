@@ -43,8 +43,8 @@ var keyPressEvent = function(key){
 		id_selector = '#' + 'key_' + key.toLowerCase();
 	}
 	//console.log(id_selector);
-	$(id_selector).css('background-color', 'blue');
-	window.key_press_timeout = setTimeout(function(){$(id_selector).css('background-color', 'white')}, 750)
+	$(id_selector).css('background-color', 'gray');
+	window.key_press_timeout = setTimeout(function(){$(id_selector).css('background-color', 'black')}, 750)
 	if(key === 'space'){
 		console.log(cursor_position);
 		accuracy_arr[cursor_position] = sampleType('_');
@@ -86,7 +86,7 @@ var keyUpEvent = function(key){
 		id_selector = '#' + 'key_' + key.toLowerCase();
 	}
 	console.log(id_selector);
-	$(id_selector).css('background-color', 'white');
+	$(id_selector).css('background-color', 'black');
 };
 
 var sampleType = function(typeKey, readKey, currentPosition){

@@ -72,8 +72,8 @@ var appendStats = function(wpm, cpm, accuracy){
 		$('#accuracy').text(accuracyText)	
 	}
 	if(active_user){
-		$('.sidebar-userWPM').text(active_user.WPM);
-		$('.sidebar-userCPM').text(active_user.CPM);
+		$('.sidebar-userWPM').text((active_user.WPM + '').substring(0,5));
+		$('.sidebar-userCPM').text((active_user.CPM + '').substring(0,5));
 	}
 
 };

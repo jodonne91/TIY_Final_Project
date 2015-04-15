@@ -19,7 +19,7 @@ function keyDisappear(key_id){
 	function dissolve(){
 		op -= 0.05;
 		key_id.css('opacity',op);
-		console.log(op);
+		//console.log(op);
 		//window.interval[running_index];
 		if(op < 0){
 			window.clearInterval(window.dissolve[current_index]);
@@ -36,7 +36,7 @@ function keyDisappear(key_id){
 		height += 0.18;
 		width -= 0.01;
 		key_id.css('transform', 'scale(' + width + ',' + height + ')');
-		console.log(height);
+		//console.log(height);
 		window.scale[running_index];
 		if(height > 5){
 			clearInterval(window.scale[current_index]);

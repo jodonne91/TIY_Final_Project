@@ -11,7 +11,7 @@ var loadKeyboard = function(){
 			//bindMouseTrapEvent('shift + ' + key)
 		}		
 	//bind all uppercase letters
-		for(var i = 65 ; i < 90 ; i ++){
+		for(var i = 65 ; i < 91 ; i ++){
 			var key = String.fromCharCode(i);
 			bindMouseTrapEvent(key);
 		}

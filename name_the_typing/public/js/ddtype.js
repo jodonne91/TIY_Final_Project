@@ -14,7 +14,7 @@ var ddTypeText = function(){
 
 	var index = 0;
 
-	$('.ddkey').text('')
+	$('.ddkey').text('');
 	clearInterval(window.ddtypeInterval);
 
 	window.ddtypeInterval = setInterval(function(){

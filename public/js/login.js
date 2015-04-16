@@ -63,7 +63,7 @@ var runLogin = function(init){
 		$('.login-append').hide();
 		$('.buttons').hide();
 		$('.user-info').show();
-		$('header').hide();
+		//$('header').hide();
 		$('.sidebar-username').text(active_user.username);
 		$('.sidebar-userWPM').text(active_user.WPM);
 		$('.sidebar-userCPM').text(active_user.CPM);

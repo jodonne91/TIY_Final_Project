@@ -111,7 +111,7 @@ var sampleType = function(typeKey, readKey, currentPosition){
 			keyDisappear($id);
 			lower_limit = cursor_position;
 		}
-		$('.text-response').text(calculateAccuracy());
+		//$('.text-response').text(calculateAccuracy());
 		$id.css('color', '#A3A5A3');
 	}
 	else {

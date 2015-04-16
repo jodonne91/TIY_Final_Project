@@ -37,7 +37,7 @@ button{
 }
 
 .workspace{
-	min-width: 1000px;
+	width: 1350px;
 }
 
 .ddtype{
@@ -90,6 +90,6 @@ button{
 
 .user-info{
 	float: right;
-	display: inline-block;
+	display: block;
 }
 

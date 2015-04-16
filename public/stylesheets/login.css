@@ -1,4 +1,18 @@
 
+.username-header{
+	margin-right: 50px;
+  display: inline-block;
+  font-size: 2em
+}
+
+.sidebar-username{
+	font-size: 2em;
+}
+
+.logout{
+	float: right;
+}
+
 .side-bar-button{
 	text-align: center;
 	padding: 12px;

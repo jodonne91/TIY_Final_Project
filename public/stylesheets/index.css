@@ -64,6 +64,7 @@ button{
 }
 
 .text-space{
+	width: 920px;
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -93,3 +94,22 @@ button{
 	display: block;
 }
 
+.tina-head{
+	width: 5em;
+	top: 407px;
+	left: 773px;
+	position: absolute;
+}
+
+.in-tina{
+	top: 0;
+	height: 13em;
+	left: 670px;
+	position: absolute
+}
+
+.tina-tina{
+	top: 350px;
+	height: 24em;
+	position: absolute;
+}

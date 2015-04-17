@@ -1,8 +1,10 @@
 
 
-//function to eliminate use of individual Mousetrap.bind calls
-
 var lower_limit = 0;
+var text_active = false;
+
+
+//function to eliminate use of individual Mousetrap.bind calls
 
 var bindMouseTrapEvent = function(key){
 	Mousetrap.bind(key, function(){keyPressEvent(key); return false});  //let Mousetrap handle 'keydown' or 'keypress'; disable default action
@@ -97,7 +99,9 @@ var sampleType = function(typeKey, readKey, currentPosition){
 	var readKey = readKey || $id.text()
 
 	if (currentPosition === 0){
-		clock.start();
+		if(text_active){
+			clock.start();
+		}
 	}
 
 	incrementCursorPosition();

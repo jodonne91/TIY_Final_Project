@@ -1,4 +1,27 @@
 
+// var loadLeaderboard = function(){
+
+// 	$('.leaderboard-div').load('partials/leaderboard.html', function(){
+// 		$('.leaderboard').hide();
+// 		updateLeaderboard();
+// 	})
+
+// }
+
+
+var updateLeaderboard = function(){
+
+	$.ajax({
+		url: '/users',
+		method: 'GET',
+		success: function(data){
+			//do stuff
+		}
+	})
+
+}
+
+
 var loadKeyboard = function(){
 		$('.keyboard-qwerty').load('partials/keyboard.html', function(){
 	//bind all keys (letters/lowercase only)

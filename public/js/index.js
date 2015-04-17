@@ -1,6 +1,7 @@
 
 $(function(){
 
+
 	$(".restart-button").hide();
 
 	Mousetrap.bind('backspace', function(e) {
@@ -11,6 +12,7 @@ $(function(){
 
 //load partials 
 
+	saveSession();
 	loadSidebar();
 	loadKeyboard();
 	//loadLeaderboard();

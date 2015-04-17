@@ -39,25 +39,32 @@ var calculateStats = function(){
 	if(session_time){
 		total_time += session_time;
 	}
+	if(true_count){
+		total_correct += true_count;
+	}
 
-	appendStats(session_WPM, session_charPM, session_accuracy);
-	console.log(session_WPM, session_charPM, session_accuracy); 
 	overallStats();
+	appendStats(WPM, charPM, accuracy);
+	// appendStats(session_WPM, session_charPM, session_accuracy);
+	console.log(session_WPM, session_charPM, session_accuracy); 
 }
 
 
 var overallStats = function(){
 	WPM = (total_words/total_time)*60000;
 	charPM = (total_characters/total_time)*60000;
+	accuracy = (total_correct/total_characters)*100;
 	wpmText = (WPM + '').substring(0, 5);
 	cpmText = (charPM + '').substring(0, 5);
 	accuracyText = (accuracy + '').substring(0, 5) + '%';
-	console.log(WPM, charPM);
+	console.log('overall', WPM, charPM);
 	if(active_user){
 		active_user.wordsTyped += num_words;
 		active_user.WPM = WPM;
 		active_user.CPM = charPM;
+		return;
 	}
+	//appendStats(WPM, charPM, accuracy);
 }
 
 
@@ -69,7 +76,7 @@ var appendStats = function(wpm, cpm, accuracy){
 		accuracyText = (accuracy + '').substring(0, 5) + '%';
 		$('#WPM').text(wpmText);
 		$('#CPM').text(cpmText);
-		$('#accuracy').text(accuracyText)	
+		$('#accuracy').text(accuracyText);	
 	}
 	if(active_user){
 		$('.sidebar-userWPM').text((active_user.WPM + '').substring(0,5));

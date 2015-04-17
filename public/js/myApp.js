@@ -22,6 +22,8 @@ var accuracy_arr = [];
 var total_words = 0;
 var total_characters = 0;
 var total_time = 0;
+var total_correct = 0;
+var total_sentences = 0;
 //limit ten sentences -- maybe
 
 

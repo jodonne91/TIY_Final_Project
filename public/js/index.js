@@ -13,7 +13,7 @@ $(function(){
 
 	loadSidebar();
 	loadKeyboard();
-	loadLeaderboard();
+	//loadLeaderboard();
 
 
 //bind spacebar

@@ -1,6 +1,6 @@
 
 var loadKeyboard = function(){
-		$('.keyboard').load('partials/keyboard.html', function(){
+		$('.keyboard-qwerty').load('partials/keyboard.html', function(){
 	//bind all keys (letters/lowercase only)
 		
 		keyClick();
@@ -20,6 +20,44 @@ var loadKeyboard = function(){
 			bindMouseTrapEvent(key)
 		}
 	});
+
+
+
+	$('.keyboard-dvorak').load('partials/dvorak.html', function(){
+
+		keyClick();
+
+
+		for(var i = 97 ; i < 123 ; i ++){
+			var key = String.fromCharCode(i);
+			bindMouseTrapEvent(key);
+			//bindMouseTrapEvent('shift + ' + key)
+		}		
+	//bind all uppercase letters
+		for(var i = 65 ; i < 91 ; i ++){
+			var key = String.fromCharCode(i);
+			bindMouseTrapEvent(key);
+		}
+		for(var i = 0 ; i < 10 ; i++){
+			var key = i + '';
+			bindMouseTrapEvent(key)
+		}
+
+		$('.keyboard-dvorak').hide();
+
+	});
+
+
+	$('.select-qwerty').on('click', function(){
+		$('.keyboard-dvorak').hide();
+		$('.keyboard-qwerty').show();
+	});
+
+	$('.select-dvorak').on('click', function(){
+		$('.keyboard-qwerty').hide();
+		$('.keyboard-dvorak').show();
+	});
+
 
 	// for(var i = 0 ; i < arguments.length ; i++){
 	// 	arguments[i].call();
